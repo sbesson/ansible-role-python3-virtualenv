@@ -1,14 +1,17 @@
 ---
 
 - import_tasks: redhat.yml
-  when: ansible_os_family | lower == 'redhat'
+  when: (ansible_os_family | lower == 'redhat') and not python3_miniconda
 
 - import_tasks: debian.yml
-  when: ansible_os_family | lower == 'debian'
+  when: (ansible_os_family | lower == 'debian') and not python3_miniconda
+
+- import_tasks: miniconda.yml
+  when: and not python3_miniconda
 
 - name: python3 venv | create python virtualenv wrapper
   become: true
-  copy:
+  template:
     dest: /usr/local/bin/ome-python3-virtualenv
     src: ome-python3-virtualenv.sh
     mode: 'u=rwx,g=rx,o=rx'

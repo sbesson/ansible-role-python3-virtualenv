@@ -16,4 +16,8 @@ for arg in "$@"; do
         shift
     fi
 done
+{% if python3_miniconda -%}
+{{ python3_miniconda_prefix }}/python3 -mvenv "$@"
+{% else -%}
 python3 -mvenv "$@"
+{% endif -%}
