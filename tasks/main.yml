@@ -7,7 +7,7 @@
   when: (ansible_os_family | lower == 'debian') and not python3_miniconda
 
 - import_tasks: conda.yml
-  when: and not python3_miniconda
+  when: python3_miniconda
 
 - name: python3 venv | create python virtualenv wrapper
   become: true
