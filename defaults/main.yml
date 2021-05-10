@@ -1,6 +1,6 @@
 ---
 # Whether a Miniconda environment should be installed
-python3_virtualenv_miniconda: false
+python3_miniconda: false
 
 # The prefix under which the Miniconda environment should be installed
-python3_virtualenv_prefix: '/opt/miniconda'
+python3_miniconda_prefix: '/opt/miniconda'
