@@ -10,6 +10,10 @@ platforms:
     image: centos:7
     groups:
       - py2
+  - name: interpreter-py2-c7-miniconda
+    image: centos:7
+    groups:
+      - py2
   - name: interpreter-py2-u1804
     image: ubuntu:18.04
     groups:
@@ -24,6 +28,9 @@ provisioner:
     group_vars:
       py2:
         ansible_python_interpreter: python2
+    host_vars:
+      interpreter-py2-c7-miniconda:
+        python3_miniconda: true
 
 scenario:
   name: interpreter-py2
