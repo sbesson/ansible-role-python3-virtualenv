@@ -14,6 +14,7 @@
 - name: Install Miniconda
   block:
     - name: Run Miniconda installer
+      become: true
       shell: >
         {{ miniconda_installer_tempfile.path }}
         -b -p {{ python3_miniconda_prefix }}
